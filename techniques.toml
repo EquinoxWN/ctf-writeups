@@ -1,0 +1,62 @@
+# Controlled vocabulary for the technique index. A write-up may only use ids defined here.
+# id = table name (lower-case words joined by '-'); category is the technique's home category.
+
+[sql-injection]
+name = "SQL injection"
+category = "web"
+cwe = "CWE-89"
+
+[command-injection]
+name = "OS command injection"
+category = "web"
+cwe = "CWE-78"
+
+[path-traversal]
+name = "Path traversal"
+category = "web"
+cwe = "CWE-22"
+
+[ssrf]
+name = "Server-side request forgery"
+category = "web"
+cwe = "CWE-918"
+
+[padding-oracle]
+name = "Padding oracle"
+category = "crypto"
+cwe = "CWE-209"
+
+[known-plaintext]
+name = "Known-plaintext attack"
+category = "crypto"
+
+[repeating-key-xor]
+name = "Repeating-key XOR"
+category = "crypto"
+cwe = "CWE-327"
+
+[stack-buffer-overflow]
+name = "Stack buffer overflow"
+category = "pwn"
+cwe = "CWE-121"
+
+[rop]
+name = "Return-oriented programming (ROP)"
+category = "pwn"
+
+[format-string]
+name = "Format string"
+category = "pwn"
+cwe = "CWE-134"
+
+[file-format-metadata]
+name = "File format metadata"
+category = "forensics"
+
+[decoy-filtering]
+name = "Decoy filtering"
+category = "forensics"
+
+[static-analysis]
+name = "Static analysis of a binary"
+category = "reversing"
