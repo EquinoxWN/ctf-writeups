@@ -13,7 +13,7 @@ Part of my **Cyber Security** list · Python · Markdown
 
 ![ctfw check, index and solve output](docs/proof/solves.jpg)
 
-125 tests pass locally (1 symbolic-link test runs in CI on Linux), 10 of 10 hand mutations of the core functions are killed, and `pip-audit` finds no known vulnerabilities:
+126 tests pass locally (1 symbolic-link test runs in CI on Linux), 10 of 10 hand mutations of the core functions are killed, and `pip-audit` finds no known vulnerabilities:
 
 ![pytest, mutation run and pip-audit output](docs/proof/tests.jpg)
 
@@ -96,7 +96,7 @@ Language: **Python · Markdown**. Code in [`src/ctf_writeups/`](src/ctf_writeups
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 make setup     # install the package and dev tools (upgrades pip first)
 make lint      # ruff, ruff format, mypy --strict
-make test      # 125 tests (+1 symbolic-link test that needs Linux or extra rights on Windows)
+make test      # 126 tests (+1 symbolic-link test that needs Linux or extra rights on Windows)
 make check     # ctfw check && ctfw index --check
 make solve     # ctfw solve: run the four practice exploits, compare flag hashes
 make audit     # pip-audit
@@ -126,7 +126,7 @@ Full numbers and commands: [docs/results/m1.md](docs/results/m1.md). The 10-rule
 
 | Check | Result |
 |---|---|
-| Tests | **125 passed**, 1 skipped (symbolic links, runs in CI), 0 failed |
+| Tests | **126 passed**, 1 skipped (symbolic links, runs in CI), 0 failed |
 | `ctfw check` | 4 write-ups OK, 6 of 13 techniques covered, 0 problems |
 | `ctfw solve` | 4 of 4 flags match their write-ups; padding oracle: 9,909 queries for 5 blocks |
 | Mutation testing | 10 of 10 hand mutations killed (9 before one test was fixed) |

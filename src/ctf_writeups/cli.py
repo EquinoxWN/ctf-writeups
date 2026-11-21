@@ -92,11 +92,15 @@ def cmd_new(root: Path, slug: str, category: str, techniques: Sequence[str]) -> 
     try:
         vocab = load_vocabulary(root / VOCAB_NAME)
     except VocabularyError as exc:
-        print(f"{VOCAB_NAME}: {exc}", file=sys.stderr)
+        for msg in exc.problems:
+            print(f"{VOCAB_NAME}: {msg}", file=sys.stderr)
+        return 1
+    if not SLUG.match(slug):
+        print(f"invalid slug {slug!r}", file=sys.stderr)
         return 1
     unknown = [t for t in techniques if t not in vocab]
-    if not SLUG.match(slug) or unknown:
-        print(f"invalid slug {slug!r}" if not SLUG.match(slug) else f"unknown techniques: {unknown}", file=sys.stderr)
+    if unknown:
+        print(f"unknown techniques: {unknown}", file=sys.stderr)
         return 1
     path = root / WRITEUPS_DIR / category / f"{slug}.md"
     path.parent.mkdir(parents=True, exist_ok=True)

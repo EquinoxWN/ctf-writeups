@@ -74,3 +74,8 @@ def test_body_without_sections_is_all_preamble() -> None:
     doc = parse("+++\n+++\njust text\n")
     assert doc.sections == ()
     assert "just text" in doc.preamble
+
+
+def test_a_fence_line_with_an_info_string_does_not_close_a_block() -> None:
+    body = "```\n```python\n## inside\n```\n## B"
+    assert [h.title for h in headings(body, 1)] == ["B"]

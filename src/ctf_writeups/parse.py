@@ -9,7 +9,7 @@ from typing import Any
 
 FENCE = "+++"
 _HEADING = re.compile(r"^(#{1,6})[ \t]+(.*?)[ \t]*#*[ \t]*$")
-_CODE_FENCE = re.compile(r"^[ \t]{0,3}(`{3,}|~{3,})")
+_CODE_FENCE = re.compile(r"^[ \t]{0,3}(`{3,}|~{3,})(.*)$")
 
 
 class ParseError(ValueError):
@@ -76,7 +76,7 @@ def headings(body: str, first_line: int) -> tuple[Heading, ...]:
             token = marker.group(1)
             if fence is None:
                 fence = token[0] * len(token)
-            elif token[0] == fence[0] and len(token) >= len(fence):
+            elif token[0] == fence[0] and len(token) >= len(fence) and not marker.group(2).strip():
                 fence = None
             continue
         if fence is not None:

@@ -18,8 +18,8 @@ class SolveResult:
     queries: int
 
 
-def _registry() -> dict[str, Callable[[], SolveResult]]:
-    """Write-up slug to solver."""
+def solvers() -> dict[str, Callable[[], SolveResult]]:
+    """Every practice solver by the slug of its write-up."""
     from ctf_writeups.practice import cbc_oracle, png_meta, sqli_login, xor_note
 
     return {
@@ -28,8 +28,3 @@ def _registry() -> dict[str, Callable[[], SolveResult]]:
         "xor-internal-note": xor_note.solve,
         "png-hidden-chunk": png_meta.solve,
     }
-
-
-def solvers() -> dict[str, Callable[[], SolveResult]]:
-    """Every practice solver by the slug of its write-up."""
-    return _registry()
